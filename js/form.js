@@ -1,3 +1,54 @@
+// validate user name
+const validName = name => {
+  if (!name) {
+    console.log('blank name');
+    document.querySelector('#name').placeholder = 'please enter your name';
+    return false;
+  } else if (!name.match(/^[a-zA-Z]+$/)) {
+    console.log('non-alpha detected');
+    document.querySelector('#name').value = '';
+    document.querySelector('#name').placeholder = 'letters only please';
+    return false;
+  } else {
+    return true;
+  }
+};
+
+// validate photo url
+const validUrl = url => {
+  if (!url) {
+    console.log('blank url');
+    document.querySelector('#photo').placeholder = 'please enter a valid url';
+    return false;
+  } else if (
+    !url.match(
+      /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
+    )
+  ) {
+    console.log('invalid url');
+    document.querySelector('#photo').value = '';
+    document.querySelector('#photo').placeholder = 'please enter a valid url';
+    return false;
+  } else {
+    return true;
+  }
+};
+
+// validate user scores
+const validScores = arr => {
+  if (arr.includes(NaN)) {
+    for (let i = 0; i < arr.length; i++) {
+      if (!arr[i]) {
+        console.log(`missing score at #q${i + 1}`);
+      }
+    }
+    return false;
+  } else {
+    return true;
+  }
+};
+
+// create user, validate, post to server, reset form
 document.querySelector('#submit').addEventListener('click', e => {
   e.preventDefault();
 
@@ -18,11 +69,10 @@ document.querySelector('#submit').addEventListener('click', e => {
     ]
   };
 
-  // UPDATE VALIDATION FOR NAME (NO NUMBERS) & URL (MUST BE ACTUAL URL)
   if (
-    newUser.name === '' ||
-    newUser.photo === '' ||
-    newUser.scores.includes(NaN)
+    !validName(newUser.name) ||
+    !validUrl(newUser.photo) ||
+    !validScores(newUser.scores)
   ) {
     // ADD WARNING TO USER FOR MISSING ENTRIES
     console.log('not ready');
@@ -34,7 +84,9 @@ document.querySelector('#submit').addEventListener('click', e => {
       .catch(error => console.log(error));
 
     document.querySelector('#name').value = '';
+    document.querySelector('#name').placeholder = '';
     document.querySelector('#photo').value = '';
+    document.querySelector('#photo').placeholder = '';
     document.querySelector('#q1').value = '';
     document.querySelector('#q2').value = '';
     document.querySelector('#q3').value = '';

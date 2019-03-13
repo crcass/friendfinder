@@ -80,7 +80,14 @@ document.querySelector('#submit').addEventListener('click', e => {
     // console.log(newUser);
     axios
       .post('/api/friends', newUser)
-      .then(response => console.log(response))
+      .then(response => {
+        console.log(response);
+        document.querySelector('#newUser-name').textContent = newUser.name;
+        document.querySelector('#newUser-photo').src = newUser.photo;
+        document.querySelector('#bestFriend-name').textContent =
+          response.data[0];
+        document.querySelector('#bestFriend-photo').src = response.data[1];
+      })
       .catch(error => console.log(error));
 
     document.querySelector('#name').value = '';

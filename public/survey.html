@@ -1,121 +1,141 @@
 <!DOCTYPE html>
 <html lang="en-us">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Survey</title>
+  <link rel="stylesheet" href="/stylesheets/reset.css">
+  <link rel="stylesheet" href="/stylesheets/index.css">
 
-<head>
-    <title>Survey</title>
+</head>
 
 <body>
-    <form action="/api/friends" method="POST">
-        <label for="name">Your name</label>
-        <input type="text" name="name" id="name" required>
+    <section>
+        <h2>Get Started</h2>
+        <h3>Answer these questions and we'll find your new best friend</h3>
+        <form action="/api/friends" method="POST">
+            <label for="name">Your name</label>
+            <input type="text" name="name" id="name" required>
 
-        <label for="photo">Link to photo</label>
-        <input type="url" name="photo" id="photo" required>
+            <label for="photo">Link to photo</label>
+            <input type="url" name="photo" id="photo" required>
 
-        <label for="q1">Question 1</label>
-        <select name="scores[0]" id="q1" required>
-            <option value="">Choose</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+            <label for="q1">Question 1</label>
+            <select name="scores[0]" id="q1" required>
+                <option value="">Choose</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-        <label for="q2">Question 2</label>
-        <select name="scores[1]" id="q2" required>
-            <option value="">Choose</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+            <label for="q2">Question 2</label>
+            <select name="scores[1]" id="q2" required>
+                <option value="">Choose</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-        <label for="q3">Question 3</label>
-        <select name="scores[2]" id="q3" required>
-            <option value="">Choose</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+            <label for="q3">Question 3</label>
+            <select name="scores[2]" id="q3" required>
+                <option value="">Choose</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-        <label for="q4">Question 4</label>
-        <select name="scores[3]" id="q4" required>
-            <option value="">Choose</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+            <label for="q4">Question 4</label>
+            <select name="scores[3]" id="q4" required>
+                <option value="">Choose</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-        <label for="q5">Question 5</label>
-        <select name="scores[4]" id="q5" required>
-            <option value="">Choose</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+            <label for="q5">Question 5</label>
+            <select name="scores[4]" id="q5" required>
+                <option value="">Choose</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-        <label for="q6">Question 6</label>
-        <select name="scores[5]" id="q6" required>
-            <option value="">Choose</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+            <label for="q6">Question 6</label>
+            <select name="scores[5]" id="q6" required>
+                <option value="">Choose</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-        <label for="q7">Question 7</label>
-        <select name="scores[6]" id="q7" required>
-            <option value="">Choose</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+            <label for="q7">Question 7</label>
+            <select name="scores[6]" id="q7" required>
+                <option value="">Choose</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-        <label for="q8">Question 8</label>
-        <select name="scores[7]" id="q8" required>
-            <option value="">Choose</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+            <label for="q8">Question 8</label>
+            <select name="scores[7]" id="q8" required>
+                <option value="">Choose</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-        <label for="q9">Question 9</label>
-        <select name="scores[8]" id="q9" required>
-            <option value="">Choose</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+            <label for="q9">Question 9</label>
+            <select name="scores[8]" id="q9" required>
+                <option value="">Choose</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-        <label for="q10">Question 10</label>
-        <select name="scores[9]" id="q10" required>
-            <option value="">Choose</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+            <label for="q10">Question 10</label>
+            <select name="scores[9]" id="q10" required>
+                <option value="">Choose</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-        <button type="submit" id="submit">Submit</button>
-    </form>
+            <button type="submit" id="submit">Submit</button>
+        </form>
+    </section>
+
+    <div class="modal">
+        <div class="newUser">
+            <h2 id="newUser-name"></h2>
+            <img src="" alt="" id="newUser-photo">
+        </div>
+        <div class="bestFriend">
+            <h2 id="bestFriend-name"></h2>
+            <img src="" alt="" id="bestFriend-photo">
+        </div>
+        
+
+    </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="form.js"></script>

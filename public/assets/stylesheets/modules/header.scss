@@ -1,11 +1,13 @@
 header {
   height: 4em;
   width: 100%;
+  background-color: #fff;
   display: flex;
   align-items: center;
   border-bottom: 1px solid black;
   position: fixed;
   top: 0;
+  z-index: 9999;
 
   h1 {
     font-family: National-Medium, sans-serif;
@@ -16,6 +18,8 @@ header {
   a {
     cursor: pointer;
     text-decoration: none;
+    color: inherit;
+
     &:visited {
       color: inherit;
     }

@@ -1,3 +1,35 @@
+// enables animated underline on focus
+const handleBorder = () => {
+  let name = document.querySelector('#name');
+  let photo = document.querySelector('#photo');
+  let questions = document.getElementsByTagName('select');
+
+  name.addEventListener('focus', e => {
+    document.querySelector('#name-wrapper').className = 'focused-wrapper';
+  });
+  name.addEventListener('blur', e => {
+    document.querySelector('#name-wrapper').className = 'input-wrapper';
+  });
+  photo.addEventListener('focus', e => {
+    document.querySelector('#photo-wrapper').className = 'focused-wrapper';
+  });
+  photo.addEventListener('blur', e => {
+    document.querySelector('#photo-wrapper').className = 'input-wrapper';
+  });
+
+  for (var i = 0; i < questions.length; i++) {
+    let question = document.querySelector(`#q${i + 1}`);
+    let wrapper = document.querySelector(`#q${i + 1}-wrapper`);
+    question.addEventListener('focus', e => {
+      wrapper.className = 'select-focused';
+    });
+    question.addEventListener('blur', e => {
+      wrapper.className = 'select-wrapper';
+    });
+  }
+};
+handleBorder();
+
 // validate user name
 const validName = name => {
   if (!name) {

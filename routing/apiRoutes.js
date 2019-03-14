@@ -7,7 +7,7 @@ const findFriend = (arr1, arr2) => {
     if (result < 0) {
       result *= -1;
     }
-    totalDifference = totalDifference + result;
+    totalDifference += result;
   }
   return totalDifference;
 };

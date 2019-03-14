@@ -1,0 +1,23 @@
+header {
+  height: 4em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  position: fixed;
+  top: 0;
+
+  h1 {
+    font-family: National-Medium, sans-serif;
+    font-size: 2em;
+    margin-left: 0.5em;
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    &:visited {
+      color: inherit;
+    }
+  }
+}

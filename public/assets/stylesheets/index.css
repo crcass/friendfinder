@@ -1,13 +1,36 @@
 @font-face {
   font-family: 'National-Light';
-  src: url("/fonts/NationalTest-Light.woff"); }
+  src: url("../fonts/NationalTest-Light.woff"); }
 
 @font-face {
   font-family: 'National-Medium';
-  src: url("/fonts/NationalTest-Medium.woff"); }
+  src: url("../fonts/NationalTest-Medium.woff"); }
+
+header {
+  height: 4em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+  position: fixed;
+  top: 0; }
+  header h1 {
+    font-family: National-Medium, sans-serif;
+    font-size: 2em;
+    margin-left: 0.5em; }
+  header a {
+    cursor: pointer;
+    text-decoration: none; }
+    header a:visited {
+      color: inherit; }
 
 section {
-  font-family: National-Medium, sans-serif; }
+  font-family: National-Medium, sans-serif;
+  margin-top: 5em; }
   section h2 {
     font-size: 2em;
     margin: 0.5em; }
@@ -39,7 +62,7 @@ section {
     section form button {
       height: 2em;
       width: 5em;
-      font-size: 1.5em;
+      font-size: 1.25em;
       -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;

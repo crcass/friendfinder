@@ -1,5 +1,6 @@
 section {
   font-family: National-Medium, sans-serif;
+  margin-top: 5em;
 
   h2 {
     font-size: 2em;
@@ -32,14 +33,13 @@ section {
     select {
       font-family: National-Light, sans-serif;
       font-size: 1em;
-      // font-size: 0.8em;
       margin: 0.5em 4em;
     }
 
     button {
       height: 2em;
       width: 5em;
-      font-size: 1.5em;
+      font-size: 1.25em;
       align-self: center;
       margin: 1em 0;
     }

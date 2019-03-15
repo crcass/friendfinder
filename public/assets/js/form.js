@@ -30,14 +30,20 @@ const handleBorder = () => {
 };
 handleBorder();
 
+// convert user name to Title Case
+const titleCase = str =>
+  str
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
 // validate user name
 const validName = name => {
   if (!name) {
-    console.log('blank name');
     document.querySelector('#name').placeholder = 'please enter your name';
     return false;
-  } else if (!name.match(/^[a-zA-Z]+$/)) {
-    console.log('non-alpha detected');
+  } else if (!name.match(/^[a-zA-Z\s]+$/)) {
     document.querySelector('#name').value = '';
     document.querySelector('#name').placeholder = 'letters only please';
     return false;
@@ -49,7 +55,6 @@ const validName = name => {
 // validate photo url
 const validUrl = url => {
   if (!url) {
-    console.log('blank url');
     document.querySelector('#photo').placeholder = 'please enter a valid url';
     return false;
   } else if (
@@ -57,7 +62,6 @@ const validUrl = url => {
       /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
     )
   ) {
-    console.log('invalid url');
     document.querySelector('#photo').value = '';
     document.querySelector('#photo').placeholder = 'please enter a valid url';
     return false;
@@ -70,8 +74,9 @@ const validUrl = url => {
 const validScores = arr => {
   if (arr.includes(NaN)) {
     for (let i = 0; i < arr.length; i++) {
+      let question = document.querySelector(`#q${i + 1}`);
       if (!arr[i]) {
-        console.log(`missing score at #q${i + 1}`);
+        question.style.color = '#dc3545';
       }
     }
     return false;
@@ -85,8 +90,11 @@ document.querySelector('#submit').addEventListener('click', e => {
   e.preventDefault();
 
   let newUser = {
-    name: document.querySelector('#name').value.trim(),
-    photo: document.querySelector('#photo').value.trim(),
+    name: titleCase(document.querySelector('#name').value.trim()),
+    photo: document
+      .querySelector('#photo')
+      .value.trim()
+      .toLowerCase(),
     scores: [
       parseInt(document.querySelector('#q1').value),
       parseInt(document.querySelector('#q2').value),
@@ -102,19 +110,14 @@ document.querySelector('#submit').addEventListener('click', e => {
   };
 
   if (
-    !validName(newUser.name) ||
-    !validUrl(newUser.photo) ||
-    !validScores(newUser.scores)
+    validName(newUser.name) &&
+    validUrl(newUser.photo) &&
+    validScores(newUser.scores)
   ) {
-    // ADD WARNING TO USER FOR MISSING ENTRIES
-    console.log('not ready');
-  } else {
-    // console.log(newUser);
     document.querySelector('#modal').style.display = 'block';
     axios
       .post('/api/friends', newUser)
       .then(response => {
-        console.log(response);
         document.querySelector('#newUser-name').textContent = newUser.name;
         document.querySelector('#newUser-photo').src = newUser.photo;
         document.querySelector('#bestFriend-name').textContent =
@@ -127,16 +130,12 @@ document.querySelector('#submit').addEventListener('click', e => {
     document.querySelector('#name').placeholder = '';
     document.querySelector('#photo').value = '';
     document.querySelector('#photo').placeholder = '';
-    document.querySelector('#q1').value = '';
-    document.querySelector('#q2').value = '';
-    document.querySelector('#q3').value = '';
-    document.querySelector('#q4').value = '';
-    document.querySelector('#q5').value = '';
-    document.querySelector('#q6').value = '';
-    document.querySelector('#q7').value = '';
-    document.querySelector('#q8').value = '';
-    document.querySelector('#q9').value = '';
-    document.querySelector('#q10').value = '';
+    let select = document.getElementsByTagName('select');
+    for (let i = 0; i < select.length; i++) {
+      let question = document.querySelector(`#q${i + 1}`);
+      question.value = '';
+      question.style.color = '';
+    }
   }
 });
 

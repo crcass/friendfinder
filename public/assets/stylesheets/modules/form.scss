@@ -24,6 +24,10 @@ section {
       margin: 0.5em 2em;
     }
 
+    ::placeholder {
+      color: #dc3545;
+    }
+
     .input-wrapper {
       margin: 0.5em 4em 0;
       display: flex;

@@ -5,14 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Survey</title>
   <link rel="stylesheet" href="/assets/stylesheets/reset.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/stylesheets/index.css">
 
 </head>
 
 <body>
+
+<!-- Header -->
+
     <header>
         <h1><a href="/">Home</a></h1>
     </header>
+
+<!-- Questions -->
+
     <section>
         <h2>Get Started</h2>
         <h3>Answer these questions and we'll find your new best friend</h3>
@@ -181,18 +188,35 @@
         </form>
     </section>
 
-    <div class="modal">
-        <div class="newUser">
-            <h2 id="newUser-name"></h2>
-            <img src="" alt="" id="newUser-photo">
-        </div>
-        <div class="bestFriend">
-            <h2 id="bestFriend-name"></h2>
-            <img src="" alt="" id="bestFriend-photo">
-        </div>
-        
+<!-- Modal -->
 
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Meet your new best friend!</h2>
+                <span id="close"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="results">
+                <div class="newUser">
+                    <h3 id="newUser-name"></h3>
+                    <div class="image-div">
+                        <img src="" alt="" id="newUser-photo">
+                    </div>
+                </div>
+                <div class="bestFriend">
+                    <h3 id="bestFriend-name"></h3>
+                    <div class="image-div">
+                        <img src="" alt="" id="bestFriend-photo">
+                    </div>
+                </div>
+            </div>
+            <div class="btn-div">
+                <button id="close-btn">Close</button>
+            </div>
+        </div>  
     </div>
+
+<!-- Footer -->
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/assets/js/form.js"></script>

@@ -110,6 +110,7 @@ document.querySelector('#submit').addEventListener('click', e => {
     console.log('not ready');
   } else {
     // console.log(newUser);
+    document.querySelector('#modal').style.display = 'block';
     axios
       .post('/api/friends', newUser)
       .then(response => {
@@ -138,3 +139,16 @@ document.querySelector('#submit').addEventListener('click', e => {
     document.querySelector('#q10').value = '';
   }
 });
+
+// close modal
+document.querySelector('#close').onclick = () =>
+  (document.querySelector('#modal').style.display = 'none');
+
+document.querySelector('#close-btn').onclick = () =>
+  (document.querySelector('#modal').style.display = 'none');
+
+window.onclick = e => {
+  if (e.target === modal) {
+    document.querySelector('#modal').style.display = 'none';
+  }
+};

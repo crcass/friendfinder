@@ -1,4 +1,4 @@
-const friends = require('../app/data/friends');
+const friends = require('../data/friends');
 const searchFriends = require('../lib/searchFriends');
 
 module.exports = app => {

@@ -1,3 +1,4 @@
+// enables scroll / focus behavior on survey form
 const handleScroll = () => {
   const position = [
     '#name',

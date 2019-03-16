@@ -1,225 +1,264 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Survey</title>
-  <link rel="stylesheet" href="/assets/stylesheets/reset.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link rel="stylesheet" href="/assets/stylesheets/index.css">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Survey</title>
+    <link rel="stylesheet" href="/assets/stylesheets/reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/stylesheets/index.css">
 </head>
 
 <body>
+    <div class="survey-bg">
+        <div class="survey-wrap">
 
-<!-- Header -->
+            <!-- Header -->
 
-    <header>
-        <h1><a href="/">Home</a></h1>
-    </header>
+            <header>
+                <h1><a href="/">Link</a></h1>
+            </header>
 
-<!-- Questions -->
+            <!-- Questions -->
 
-    <section>
-        <h2>Get Started</h2>
-        <h3>Answer these questions and we'll find your new best friend</h3>
-        <form action="/api/friends" method="POST">
-            <label for="name">Your name</label>
-            <div class="input-wrapper" id="name-wrapper">
-                <input type="text" name="name" id="name" required>
-            </div>
-            
-            <label for="photo">Link to photo</label>
-            <div class="input-wrapper" id="photo-wrapper">
-                <input type="url" name="photo" id="photo" required>
-            </div>
-
-            <label for="q1">Question 1</label>
-            <div class="select-wrapper" id="q1-wrapper">
-                <i class="arrow down"></i>
-                <div class="select-border">
-                    <select name="scores[0]" id="q1" required>
-                        <option value="" selected hidden>select your answer</option>
-                        <option value="5">Completely Agree</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="3">No Strong Feelings</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="1">Completely Disagree</option>
-                    </select>
+            <section class="survey">
+                <div class="survey-head">
+                    <h2>Get Started</h2>
+                    <h3>Answer these questions and we'll find your new best friend</h3>
                 </div>
-            </div>
+                <form action="/api/friends" method="POST" id="user-info">
+                    <div class="form-wrap">
+                        <div class="question-wrap">
+                            <label for="name">Your name</label>
+                            <div class="input-wrapper" id="name-wrapper">
+                                <input type="text" name="name" id="name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="question-wrap">
+                            <label for="photo">Link to photo</label>
+                            <div class="input-wrapper" id="photo-wrapper">
+                                <input type="url" name="photo" id="photo" required>
+                            </div>
+                        </div>
 
-            <label for="q2">Question 2</label>
-            <div class="select-wrapper" id="q2-wrapper">
-                <i class="arrow down"></i>
-                <div class="select-border">
-                    <select name="scores[1]" id="q2" required>
-                        <option value="" selected hidden>select your answer</option>
-                        <option value="5">Completely Agree</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="3">No Strong Feelings</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="1">Completely Disagree</option>
-                    </select>
+                        <div class="question-wrap">
+                            <label for="q1">Tacos are totally a breakfast food</label>
+                            <div class="select-wrapper" id="q1-wrapper">
+                                <i class="arrow down"></i>
+                                <div class="select-border">
+                                    <select name="scores[0]" id="q1" required>
+                                        <option value="" selected hidden>select your answer</option>
+                                        <option value="5">Completely Agree</option>
+                                        <option value="4">Somewhat Agree</option>
+                                        <option value="3">No Strong Feelings</option>
+                                        <option value="2">Somewhat Disagree</option>
+                                        <option value="1">Completely Disagree</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-wrap">
+                            <label for="q2">I exercise often</label>
+                            <div class="select-wrapper" id="q2-wrapper">
+                                <i class="arrow down"></i>
+                                <div class="select-border">
+                                    <select name="scores[1]" id="q2" required>
+                                        <option value="" selected hidden>select your answer</option>
+                                        <option value="5">Completely Agree</option>
+                                        <option value="4">Somewhat Agree</option>
+                                        <option value="3">No Strong Feelings</option>
+                                        <option value="2">Somewhat Disagree</option>
+                                        <option value="1">Completely Disagree</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-wrap">
+                            <label for="q3">I'm smarter than most people</label>
+                            <div class="select-wrapper" id="q3-wrapper">
+                                <i class="arrow down"></i>
+                                <div class="select-border">
+                                    <select name="scores[2]" id="q3" required>
+                                        <option value="" selected hidden>select your answer</option>
+                                        <option value="5">Completely Agree</option>
+                                        <option value="4">Somewhat Agree</option>
+                                        <option value="3">No Strong Feelings</option>
+                                        <option value="2">Somewhat Disagree</option>
+                                        <option value="1">Completely Disagree</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-wrap">
+                            <label for="q4">I worry about what others think</label>
+                            <div class="select-wrapper" id="q4-wrapper">
+                                <i class="arrow down"></i>
+                                <div class="select-border">
+                                    <select name="scores[3]" id="q4" required>
+                                        <option value="" selected hidden>select your answer</option>
+                                        <option value="5">Completely Agree</option>
+                                        <option value="4">Somewhat Agree</option>
+                                        <option value="3">No Strong Feelings</option>
+                                        <option value="2">Somewhat Disagree</option>
+                                        <option value="1">Completely Disagree</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-wrap">
+                            <label for="q5">I lose track of time easily</label>
+                            <div class="select-wrapper" id="q5-wrapper">
+                                <i class="arrow down"></i>
+                                <div class="select-border">
+                                    <select name="scores[4]" id="q5" required>
+                                        <option value="" selected hidden>select your answer</option>
+                                        <option value="5">Completely Agree</option>
+                                        <option value="4">Somewhat Agree</option>
+                                        <option value="3">No Strong Feelings</option>
+                                        <option value="2">Somewhat Disagree</option>
+                                        <option value="1">Completely Disagree</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-wrap">
+                            <label for="q6">There is good in everyone</label>
+                            <div class="select-wrapper" id="q6-wrapper">
+                                <i class="arrow down"></i>
+                                <div class="select-border">
+                                    <select name="scores[5]" id="q6" required>
+                                        <option value="" selected hidden>select your answer</option>
+                                        <option value="5">Completely Agree</option>
+                                        <option value="4">Somewhat Agree</option>
+                                        <option value="3">No Strong Feelings</option>
+                                        <option value="2">Somewhat Disagree</option>
+                                        <option value="1">Completely Disagree</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-wrap">
+                            <label for="q7">Sports are important to me</label>
+                            <div class="select-wrapper" id="q7-wrapper">
+                                <i class="arrow down"></i>
+                                <div class="select-border">
+                                    <select name="scores[6]" id="q7" required>
+                                        <option value="" selected hidden>select your answer</option>
+                                        <option value="5">Completely Agree</option>
+                                        <option value="4">Somewhat Agree</option>
+                                        <option value="3">No Strong Feelings</option>
+                                        <option value="2">Somewhat Disagree</option>
+                                        <option value="1">Completely Disagree</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-wrap">
+                            <label for="q8">I like to cook</label>
+                            <div class="select-wrapper" id="q8-wrapper">
+                                <i class="arrow down"></i>
+                                <div class="select-border">
+                                    <select name="scores[7]" id="q8" required>
+                                        <option value="" selected hidden>select your answer</option>
+                                        <option value="5">Completely Agree</option>
+                                        <option value="4">Somewhat Agree</option>
+                                        <option value="3">No Strong Feelings</option>
+                                        <option value="2">Somewhat Disagree</option>
+                                        <option value="1">Completely Disagree</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-wrap">
+                            <label for="q9">I'm a morning person</label>
+                            <div class="select-wrapper" id="q9-wrapper">
+                                <i class="arrow down"></i>
+                                <div class="select-border">
+                                    <select name="scores[8]" id="q9" required>
+                                        <option value="" selected hidden>select your answer</option>
+                                        <option value="5">Completely Agree</option>
+                                        <option value="4">Somewhat Agree</option>
+                                        <option value="3">No Strong Feelings</option>
+                                        <option value="2">Somewhat Disagree</option>
+                                        <option value="1">Completely Disagree</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-wrap">
+                            <label for="q10">I like surprises</label>
+                            <div class="select-wrapper" id="q10-wrapper">
+                                <i class="arrow down"></i>
+                                <div class="select-border">
+                                    <select name="scores[9]" id="q10" required>
+                                        <option value="" selected hidden>select your answer</option>
+                                        <option value="5">Completely Agree</option>
+                                        <option value="4">Somewhat Agree</option>
+                                        <option value="3">No Strong Feelings</option>
+                                        <option value="2">Somewhat Disagree</option>
+                                        <option value="1">Completely Disagree</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+                <div class="form-nav">
+                    <button id="prev">Prev</button>
+                    <button id="next">Next</button>
+                    <button form="user-info" type="submit" id="submit">Submit</button>
                 </div>
-            </div>
 
-            <label for="q3">Question 3</label>
-            <div class="select-wrapper" id="q3-wrapper">
-                <i class="arrow down"></i>
-                <div class="select-border">
-                    <select name="scores[2]" id="q3" required>
-                        <option value="" selected hidden>select your answer</option>
-                        <option value="5">Completely Agree</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="3">No Strong Feelings</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="1">Completely Disagree</option>
-                    </select>
-                </div>
-            </div>
+            </section>
 
-            <label for="q4">Question 4</label>
-            <div class="select-wrapper" id="q4-wrapper">
-                <i class="arrow down"></i>
-                <div class="select-border">
-                    <select name="scores[3]" id="q4" required>
-                        <option value="" selected hidden>select your answer</option>
-                        <option value="5">Completely Agree</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="3">No Strong Feelings</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="1">Completely Disagree</option>
-                    </select>
-                </div>
-            </div>
+            <!-- Modal -->
 
-            <label for="q5">Question 5</label>
-            <div class="select-wrapper" id="q5-wrapper">
-                <i class="arrow down"></i>
-                <div class="select-border">
-                    <select name="scores[4]" id="q5" required>
-                        <option value="" selected hidden>select your answer</option>
-                        <option value="5">Completely Agree</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="3">No Strong Feelings</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="1">Completely Disagree</option>
-                    </select>
-                </div>
-            </div>
-
-            <label for="q6">Question 6</label>
-            <div class="select-wrapper" id="q6-wrapper">
-                <i class="arrow down"></i>
-                <div class="select-border">
-                    <select name="scores[5]" id="q6" required>
-                        <option value="" selected hidden>select your answer</option>
-                        <option value="5">Completely Agree</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="3">No Strong Feelings</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="1">Completely Disagree</option>
-                    </select>
-                </div>
-            </div>
-
-            <label for="q7">Question 7</label>
-            <div class="select-wrapper" id="q7-wrapper">
-                <i class="arrow down"></i>
-                <div class="select-border">
-                    <select name="scores[6]" id="q7" required>
-                        <option value="" selected hidden>select your answer</option>
-                        <option value="5">Completely Agree</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="3">No Strong Feelings</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="1">Completely Disagree</option>
-                    </select>
-                </div>
-            </div>
-
-            <label for="q8">Question 8</label>
-            <div class="select-wrapper" id="q8-wrapper">
-                <i class="arrow down"></i>
-                <div class="select-border">
-                    <select name="scores[7]" id="q8" required>
-                        <option value="" selected hidden>select your answer</option>
-                        <option value="5">Completely Agree</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="3">No Strong Feelings</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="1">Completely Disagree</option>
-                    </select>
-                </div>
-            </div>
-
-            <label for="q9">Question 9</label>
-            <div class="select-wrapper" id="q9-wrapper">
-                <i class="arrow down"></i>
-                <div class="select-border">
-                    <select name="scores[8]" id="q9" required>
-                        <option value="" selected hidden>select your answer</option>
-                        <option value="5">Completely Agree</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="3">No Strong Feelings</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="1">Completely Disagree</option>
-                    </select>
-                </div>
-            </div>
-
-            <label for="q10">Question 10</label>
-            <div class="select-wrapper" id="q10-wrapper">
-                <i class="arrow down"></i>
-                <div class="select-border">
-                    <select name="scores[9]" id="q10" required>
-                        <option value="" selected hidden>select your answer</option>
-                        <option value="5">Completely Agree</option>
-                        <option value="4">Somewhat Agree</option>
-                        <option value="3">No Strong Feelings</option>
-                        <option value="2">Somewhat Disagree</option>
-                        <option value="1">Completely Disagree</option>
-                    </select>
-                </div>
-            </div>
-
-            <button type="submit" id="submit">Submit</button>
-        </form>
-    </section>
-
-<!-- Modal -->
-
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Meet your new best friend!</h2>
-                <span id="close"><i class="fas fa-times"></i></span>
-            </div>
-            <div class="results">
-                <div class="newUser">
-                    <h3 id="newUser-name"></h3>
-                    <div class="image-div">
-                        <img src="" alt="" id="newUser-photo">
+            <div class="modal" id="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Meet your new best friend!</h2>
+                        <span id="close"><i class="fas fa-times"></i></span>
+                    </div>
+                    <div class="results">
+                        <div class="newUser">
+                            <div class="image-div">
+                                <img src="" alt="" id="newUser-photo">
+                            </div>
+                        </div>
+                        <div>
+                            <h3>
+                                <span id="newUser-name"></span> & <span id="bestFriend-name"></span> are <span id="compat"></span>% compatible
+                            </h3>
+                        </div>
+                        <div class="bestFriend">
+                            <div class="image-div">
+                                <img src="" alt="" id="bestFriend-photo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-div">
+                        <button id="close-btn">Close</button>
                     </div>
                 </div>
-                <div class="bestFriend">
-                    <h3 id="bestFriend-name"></h3>
-                    <div class="image-div">
-                        <img src="" alt="" id="bestFriend-photo">
-                    </div>
-                </div>
             </div>
-            <div class="btn-div">
-                <button id="close-btn">Close</button>
-            </div>
-        </div>  
+        </div>
     </div>
 
-<!-- Footer -->
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/assets/js/form.js"></script>
+    <script src="/assets/js/survey.js"></script>
 </body>
 
 </html>

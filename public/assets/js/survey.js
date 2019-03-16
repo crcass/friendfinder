@@ -1,3 +1,51 @@
+const handleScroll = () => {
+  const position = [
+    '#name',
+    '#photo',
+    '#q1',
+    '#q2',
+    '#q3',
+    '#q4',
+    '#q5',
+    '#q6',
+    '#q7',
+    '#q8',
+    '#q9',
+    '#q10'
+  ];
+
+  let nextPos = 0;
+  const next = document.querySelector('#next');
+  const prev = document.querySelector('#prev');
+  const submit = document.querySelector('#submit');
+
+ next.onclick = e => {
+    e.preventDefault();
+    if (nextPos < position.length - 1) {
+      nextPos++;
+      let target = document.querySelector(`${position[nextPos]}`);
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.focus();
+    }
+    if (nextPos === position.length - 1) {
+      next.style.display = 'none';
+      submit.style.display = 'block';
+    }
+  };
+
+  prev.onclick = e => {
+    e.preventDefault();
+    if (nextPos > 0) {
+      nextPos--;
+      let target = document.querySelector(`${position[nextPos]}`);
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.focus();
+    }
+  };
+};
+
+handleScroll();
+
 // enables animated underline on focus
 const handleBorder = () => {
   let name = document.querySelector('#name');
@@ -17,7 +65,7 @@ const handleBorder = () => {
     document.querySelector('#photo-wrapper').className = 'input-wrapper';
   });
 
-  for (var i = 0; i < questions.length; i++) {
+  for (let i = 0; i < questions.length; i++) {
     let question = document.querySelector(`#q${i + 1}`);
     let wrapper = document.querySelector(`#q${i + 1}-wrapper`);
     question.addEventListener('focus', e => {
@@ -28,6 +76,7 @@ const handleBorder = () => {
     });
   }
 };
+
 handleBorder();
 
 // convert user name to Title Case
@@ -40,12 +89,17 @@ const titleCase = str =>
 
 // validate user name
 const validName = name => {
+  const userName = document.querySelector('#name');
   if (!name) {
-    document.querySelector('#name').placeholder = 'please enter your name';
+    userName.placeholder = 'please enter your name';
+    userName.scrollIntoView({behavior: 'smooth', block: 'center'});
+    userName.focus();
     return false;
   } else if (!name.match(/^[a-zA-Z\s]+$/)) {
-    document.querySelector('#name').value = '';
-    document.querySelector('#name').placeholder = 'letters only please';
+    userName.value = '';
+    userName.placeholder = 'letters only please';
+    userName.scrollIntoView({behavior: 'smooth', block: 'center'});
+    userName.focus();
     return false;
   } else {
     return true;
@@ -54,16 +108,21 @@ const validName = name => {
 
 // validate photo url
 const validUrl = url => {
+  const photo = document.querySelector('#photo');
   if (!url) {
-    document.querySelector('#photo').placeholder = 'please enter a valid url';
+    photo.placeholder = 'please enter a valid url';
+    photo.scrollIntoView({behavior: 'smooth', block: 'center'});
+    photo.focus();
     return false;
   } else if (
     !url.match(
       /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
     )
   ) {
-    document.querySelector('#photo').value = '';
-    document.querySelector('#photo').placeholder = 'please enter a valid url';
+    photo.value = '';
+    photo.placeholder = 'please enter a valid url';
+    photo.scrollIntoView({behavior: 'smooth', block: 'center'});
+    photo.focus();
     return false;
   } else {
     return true;
@@ -77,6 +136,8 @@ const validScores = arr => {
       let question = document.querySelector(`#q${i + 1}`);
       if (!arr[i]) {
         question.style.color = '#dc3545';
+        question.scrollIntoView({behavior: 'smooth', block: 'center'});
+        question.focus();
       }
     }
     return false;
@@ -86,15 +147,12 @@ const validScores = arr => {
 };
 
 // create user, validate, post to server, reset form
-document.querySelector('#submit').addEventListener('click', e => {
+document.querySelector('#submit').onclick = e => {
   e.preventDefault();
 
   let newUser = {
     name: titleCase(document.querySelector('#name').value.trim()),
-    photo: document
-      .querySelector('#photo')
-      .value.trim()
-      .toLowerCase(),
+    photo: document.querySelector('#photo').value.trim(),
     scores: [
       parseInt(document.querySelector('#q1').value),
       parseInt(document.querySelector('#q2').value),
@@ -123,6 +181,7 @@ document.querySelector('#submit').addEventListener('click', e => {
         document.querySelector('#bestFriend-name').textContent =
           response.data[0];
         document.querySelector('#bestFriend-photo').src = response.data[1];
+        document.querySelector('#compat').textContent = response.data[2];
       })
       .catch(error => console.log(error));
 
@@ -137,7 +196,7 @@ document.querySelector('#submit').addEventListener('click', e => {
       question.style.color = '';
     }
   }
-});
+};
 
 // close modal
 document.querySelector('#close').onclick = () =>

@@ -1,5 +1,11 @@
+@keyframes animatetop {
+  from {left: -1000px; opacity: 0}
+  to {left: 0; opacity: 1}
+}
+
 .modal {
   font-family: National-Light, sans-serif;
+  color: #332f2e;
   display: none;
   position: fixed;
   z-index: 1;
@@ -10,7 +16,6 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
   padding-top: 5em;
-  transition: all 0.3s ease;
 
   .modal-content {
     position: relative;
@@ -19,16 +24,29 @@
     padding: 0 1em;
     border: 1px solid #888;
     width: 80%;
+    max-height: 85%;
+    overflow: scroll;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     animation-name: animatetop;
     animation-duration: 0.4s;
 
+    @media screen and (min-width: $break-med) {
+      width: 50%;
+    }
+
     .modal-header {
+      position: fixed;
+      background-color: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0.5em 0;
       border-bottom: 1px solid #cdcdcd;
+      width: 80%;
+
+      @media screen and (min-width: $break-med) {
+        width: 50%;
+      }
 
       h2 {
         font-family: National-Medium, sans-serif;
@@ -46,11 +64,24 @@
     }
 
     .results {
-      margin: 0.5em 0 2em;
+      margin: 4.5em 0 2em;
+      display: flex;
+      flex-direction: column;
+        align-items: center;
 
       h3 {
-        font-size: 1.25em;
-        margin-bottom: 0.5em;
+        font-size: 0.93em;
+        margin: 1em;
+
+        @media screen and (min-width: $break-med) {
+          font-size: 1em;
+        }
+      }
+
+      .image-div {
+        max-height: 200px;
+        max-width: 300px;
+        overflow: hidden;
       }
 
       img {
@@ -62,17 +93,17 @@
     .btn-div {
       display: flex;
       flex-direction: row-reverse;
+      margin: 2em 0 1em;
 
       button {
         cursor: pointer;
         color: #fff;
-        background-color: #26a69a;
-        border-color: #26a69a;
+        background-color: #29b3a6;
+        border-color: #29b3a6;
         height: 2em;
         width: 5em;
         font-size: 1.25em;
         align-self: center;
-        margin: 1.5em 0;
         transition: all 0.3s ease;
 
         &:focus {
@@ -91,10 +122,10 @@
         }
 
         &:active {
-          box-shadow: none;
           outline: transparent;
           background-color: #4ab19d;
           border-color: #4ab19d;
+          box-shadow: none;
         }
       }
     }

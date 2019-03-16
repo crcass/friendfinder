@@ -8,7 +8,11 @@
   src: url('../fonts/NationalTest-Medium.woff');
 }
 
+$break-small: 576px;
+$break-med: 751px;
+
 @import 'modules/base';
 @import 'modules/header';
-@import 'modules/form';
+@import 'modules/home';
+@import 'modules/survey';
 @import 'modules/modal';

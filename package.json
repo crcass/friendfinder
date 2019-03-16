@@ -1,7 +1,7 @@
 {
   "name": "friendfinder",
   "version": "1.0.0",
-  "description": "",
+  "description": "smu coding bootcamp assignment",
   "main": "server.js",
   "dependencies": {
     "axios": "^0.18.0",

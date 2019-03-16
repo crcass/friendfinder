@@ -1,0 +1,82 @@
+.home-bg {
+  background-image: linear-gradient(
+      rgba(168, 237, 234, 0.8),
+      rgba(254, 214, 227, 0.5)
+    ),
+    url('../images/ffbg.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  .home-wrap {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    .home {
+      color: #332f2e;
+      margin: 5em auto 0;
+      padding: 0.5em;
+      width: 80%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h2 {
+        font-family: National-Medium, sans-serif;
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+      }
+
+      p {
+        font-family: National-Light, sans-serif;
+        font-size: 1.25em;
+        max-width: 14em;
+      }
+
+      #start {
+        text-decoration: none;
+        cursor: pointer;
+        font-family: National-Light, sans-serif;
+        color: #fff;
+        background-color: #29b3a6;
+        border-color: #29b3a6;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.5em;
+        width: 6em;
+        font-size: 1.25em;
+        align-self: center;
+        margin: 1.5em 0;
+        transition: outline, background-color, border-color, box-shadow 0.3s ease;
+
+        &:focus {
+          outline: transparent;
+          background-color: #4fbea8;
+          border-color: #4fbea8;
+          box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+            0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        &:hover {
+          background-color: #4fbea8;
+          border-color: #4fbea8;
+          box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+            0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        &:active {
+          outline: transparent;
+          background-color: #4ab19d;
+          border-color: #4ab19d;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

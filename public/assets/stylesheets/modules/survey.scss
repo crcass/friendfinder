@@ -38,6 +38,7 @@
       .form-wrap {
         height: 4em;
         overflow: scroll;
+        scroll-behavior: smooth;
         margin-top: 3em;
       }
 
@@ -90,6 +91,7 @@
             background-color: #000;
             margin: -2px 0 0;
             transition: all 0.6s cubic-bezier(0.2, 1, 0.2, 1);
+            transition-delay: 0.3s;
           }
         }
 
@@ -133,6 +135,7 @@
             background-color: #000;
             margin: -2px 0 0;
             transition: all 0.6s cubic-bezier(0.2, 1, 0.2, 1);
+            transition-delay: 0.3s;
           }
         }
 

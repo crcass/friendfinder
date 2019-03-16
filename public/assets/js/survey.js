@@ -41,6 +41,11 @@ const handleScroll = () => {
       let target = document.querySelector(`${position[nextPos]}`);
       target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       target.focus();
+    } else if (nextPos === 1) {
+      nextPos = 0;
+      let target = document.querySelector(`${position[nextPos]}`);
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.focus();
     }
   };
 };

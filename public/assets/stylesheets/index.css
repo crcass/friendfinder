@@ -151,6 +151,7 @@ header {
       .survey-bg .survey-wrap .survey .form-wrap {
         height: 4em;
         overflow: scroll;
+        scroll-behavior: smooth;
         margin-top: 3em; }
       .survey-bg .survey-wrap .survey .question-wrap {
         height: 4.1em; }
@@ -213,7 +214,10 @@ header {
             margin: -2px 0 0;
             -webkit-transition: all 0.6s cubic-bezier(0.2, 1, 0.2, 1);
             -o-transition: all 0.6s cubic-bezier(0.2, 1, 0.2, 1);
-            transition: all 0.6s cubic-bezier(0.2, 1, 0.2, 1); }
+            transition: all 0.6s cubic-bezier(0.2, 1, 0.2, 1);
+            -webkit-transition-delay: 0.3s;
+            -o-transition-delay: 0.3s;
+            transition-delay: 0.3s; }
         .survey-bg .survey-wrap .survey form input {
           font-family: National-Light, sans-serif;
           font-size: 1em;
@@ -250,7 +254,10 @@ header {
             margin: -2px 0 0;
             -webkit-transition: all 0.6s cubic-bezier(0.2, 1, 0.2, 1);
             -o-transition: all 0.6s cubic-bezier(0.2, 1, 0.2, 1);
-            transition: all 0.6s cubic-bezier(0.2, 1, 0.2, 1); }
+            transition: all 0.6s cubic-bezier(0.2, 1, 0.2, 1);
+            -webkit-transition-delay: 0.3s;
+            -o-transition-delay: 0.3s;
+            transition-delay: 0.3s; }
         .survey-bg .survey-wrap .survey form .select-border {
           border-bottom: 2px solid #cdcdcd; }
         .survey-bg .survey-wrap .survey form i {

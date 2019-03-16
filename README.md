@@ -5,7 +5,7 @@ An app to find new friends
 The user enters their name and link to a photo, then answers a series of questions. The user's answers are checked against all other users' answers and the most compatible match is displayed for the user.
 
 ## Known Issues
-* Form values are reset on submission, but scrolling behavior does not reset properly.
+* Switching between scrolling/tabbing through form and using Next/Previous buttons causes awkward flow.
 * Please report as you find more.
 
 ♥︎ cc

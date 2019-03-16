@@ -226,8 +226,7 @@ header {
           -moz-appearance: none;
           appearance: none;
           border: none;
-          border-radius: 0;
-          border-bottom: 2px solid #cdcdcd; }
+          border-radius: 0; }
           .survey-bg .survey-wrap .survey form input:focus {
             outline: transparent; }
         .survey-bg .survey-wrap .survey form .select-wrapper {
@@ -259,7 +258,7 @@ header {
             -webkit-transition-delay: 0.3s;
             -o-transition-delay: 0.3s;
             transition-delay: 0.3s; }
-        .survey-bg .survey-wrap .survey form .select-border {
+        .survey-bg .survey-wrap .survey form .q-border {
           border-bottom: 2px solid #cdcdcd; }
         .survey-bg .survey-wrap .survey form i {
           pointer-events: none;

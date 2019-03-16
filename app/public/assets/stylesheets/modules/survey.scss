@@ -102,7 +102,7 @@
           appearance: none;
           border: none;
           border-radius: 0;
-          border-bottom: 2px solid #cdcdcd;
+          // border-bottom: 2px solid #cdcdcd;
 
           &:focus {
             outline: transparent;
@@ -140,7 +140,7 @@
           }
         }
 
-        .select-border {
+        .q-border {
           border-bottom: 2px solid #cdcdcd;
         }
 

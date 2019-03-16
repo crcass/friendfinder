@@ -97,7 +97,7 @@ const titleCase = str =>
 const validName = name => {
   const userName = document.querySelector('#name');
   if (!name) {
-    userName.placeholder = 'please enter your name';
+    userName.placeholder = 'enter your name';
     userName.scrollIntoView({behavior: 'smooth', block: 'center'});
     userName.focus();
     return false;
@@ -116,7 +116,7 @@ const validName = name => {
 const validUrl = url => {
   const photo = document.querySelector('#photo');
   if (!url) {
-    photo.placeholder = 'please enter a valid url';
+    photo.placeholder = 'enter a valid url';
     photo.scrollIntoView({behavior: 'smooth', block: 'center'});
     photo.focus();
     return false;
@@ -126,7 +126,7 @@ const validUrl = url => {
     )
   ) {
     photo.value = '';
-    photo.placeholder = 'please enter a valid url';
+    photo.placeholder = 'enter a valid url';
     photo.scrollIntoView({behavior: 'smooth', block: 'center'});
     photo.focus();
     return false;

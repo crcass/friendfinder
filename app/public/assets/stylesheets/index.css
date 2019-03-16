@@ -226,6 +226,7 @@ header {
           -moz-appearance: none;
           appearance: none;
           border: none;
+          border-radius: 0;
           border-bottom: 2px solid #cdcdcd; }
           .survey-bg .survey-wrap .survey form input:focus {
             outline: transparent; }

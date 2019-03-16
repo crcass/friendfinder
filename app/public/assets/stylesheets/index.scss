@@ -11,8 +11,8 @@
 $break-small: 576px;
 $break-med: 751px;
 
-@import 'modules/base';
-@import 'modules/header';
-@import 'modules/home';
-@import 'modules/survey';
-@import 'modules/modal';
+@import './modules/base';
+@import './modules/header';
+@import './modules/home';
+@import './modules/survey';
+@import './modules/modal';

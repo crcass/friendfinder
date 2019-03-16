@@ -148,7 +148,7 @@ header {
         font-family: National-Light, sans-serif;
         font-size: 1.25em;
         margin-bottom: 0.5em; }
-      .survey-bg .survey-wrap .survey .form-wrap {
+      .survey-bg .survey-wrap .survey #form-wrap {
         height: 4em;
         overflow: scroll;
         scroll-behavior: smooth;

@@ -20,7 +20,7 @@ const handleScroll = () => {
   const prev = document.querySelector('#prev');
   const submit = document.querySelector('#submit');
 
- next.onclick = e => {
+  next.onclick = e => {
     e.preventDefault();
     if (nextPos < position.length - 1) {
       nextPos++;
@@ -98,13 +98,13 @@ const validName = name => {
   const userName = document.querySelector('#name');
   if (!name) {
     userName.placeholder = 'enter your name';
-    userName.scrollIntoView({behavior: 'smooth', block: 'center'});
+    userName.scrollIntoView({ behavior: 'smooth', block: 'center' });
     userName.focus();
     return false;
   } else if (!name.match(/^[a-zA-Z\s]+$/)) {
     userName.value = '';
     userName.placeholder = 'letters only please';
-    userName.scrollIntoView({behavior: 'smooth', block: 'center'});
+    userName.scrollIntoView({ behavior: 'smooth', block: 'center' });
     userName.focus();
     return false;
   } else {
@@ -117,7 +117,7 @@ const validUrl = url => {
   const photo = document.querySelector('#photo');
   if (!url) {
     photo.placeholder = 'enter a valid url';
-    photo.scrollIntoView({behavior: 'smooth', block: 'center'});
+    photo.scrollIntoView({ behavior: 'smooth', block: 'center' });
     photo.focus();
     return false;
   } else if (
@@ -127,7 +127,7 @@ const validUrl = url => {
   ) {
     photo.value = '';
     photo.placeholder = 'enter a valid url';
-    photo.scrollIntoView({behavior: 'smooth', block: 'center'});
+    photo.scrollIntoView({ behavior: 'smooth', block: 'center' });
     photo.focus();
     return false;
   } else {
@@ -142,7 +142,7 @@ const validScores = arr => {
       let question = document.querySelector(`#q${i + 1}`);
       if (!arr[i]) {
         question.style.color = '#dc3545';
-        question.scrollIntoView({behavior: 'smooth', block: 'center'});
+        question.scrollIntoView({ behavior: 'smooth', block: 'center' });
         question.focus();
       }
     }
@@ -201,15 +201,24 @@ document.querySelector('#submit').onclick = e => {
       question.value = '';
       question.style.color = '';
     }
+    document.querySelector('#form-wrap').scrollTop = 0;
   }
 };
 
 // close modal
-document.querySelector('#close').onclick = () =>
-  (document.querySelector('#modal').style.display = 'none');
+document.querySelector('#close').onclick = () => {
+  document.querySelector('#modal').style.display = 'none';
+  document.querySelector('#submit').style.display = 'none';
+  document.querySelector('#next').style.display = 'block';
+  handleScroll();
+};
 
-document.querySelector('#close-btn').onclick = () =>
-  (document.querySelector('#modal').style.display = 'none');
+document.querySelector('#close-btn').onclick = () => {
+  document.querySelector('#modal').style.display = 'none';
+  document.querySelector('#submit').style.display = 'none';
+  document.querySelector('#next').style.display = 'block';
+  handleScroll();
+};
 
 window.onclick = e => {
   if (e.target === modal) {

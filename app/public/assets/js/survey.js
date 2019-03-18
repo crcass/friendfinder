@@ -15,20 +15,22 @@ const handleScroll = () => {
     '#q10'
   ];
 
-  let nextPos = 0;
+  let posIndex = 0;
+  const form = document.querySelector('#form-wrap');
   const next = document.querySelector('#next');
   const prev = document.querySelector('#prev');
   const submit = document.querySelector('#submit');
 
+  form.ontouchmove = e => e.preventDefault();
+
   next.onclick = e => {
     e.preventDefault();
-    if (nextPos < position.length - 1) {
-      nextPos++;
-      let target = document.querySelector(`${position[nextPos]}`);
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (posIndex < position.length - 1) {
+      posIndex++;
+      let target = document.querySelector(`${position[posIndex]}`);
       target.focus();
     }
-    if (nextPos === position.length - 1) {
+    if (posIndex === position.length - 1) {
       next.style.display = 'none';
       submit.style.display = 'block';
     }
@@ -36,15 +38,13 @@ const handleScroll = () => {
 
   prev.onclick = e => {
     e.preventDefault();
-    if (nextPos > 0) {
-      nextPos--;
-      let target = document.querySelector(`${position[nextPos]}`);
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (posIndex > 0) {
+      posIndex--;
+      const target = document.querySelector(`${position[posIndex]}`);
       target.focus();
-    } else if (nextPos === 1) {
-      nextPos = 0;
-      let target = document.querySelector(`${position[nextPos]}`);
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (posIndex === 1) {
+      posIndex = 0;
+      const target = document.querySelector(`${position[posIndex]}`);
       target.focus();
     }
   };
@@ -54,26 +54,26 @@ handleScroll();
 
 // enables animated underline on focus
 const handleBorder = () => {
-  let name = document.querySelector('#name');
-  let photo = document.querySelector('#photo');
-  let questions = document.getElementsByTagName('select');
+  const name = document.querySelector('#name');
+  const photo = document.querySelector('#photo');
+  const questions = document.getElementsByTagName('select');
 
-  name.addEventListener('focus', e => {
+  name.onfocus = e => {
     document.querySelector('#name-wrapper').className = 'focused-wrapper';
-  });
-  name.addEventListener('blur', e => {
+  };
+  name.onblur = e => {
     document.querySelector('#name-wrapper').className = 'input-wrapper';
-  });
-  photo.addEventListener('focus', e => {
+  };
+  photo.onfocus =  e => {
     document.querySelector('#photo-wrapper').className = 'focused-wrapper';
-  });
-  photo.addEventListener('blur', e => {
+  };
+  photo.onblur = e => {
     document.querySelector('#photo-wrapper').className = 'input-wrapper';
-  });
+  };
 
   for (let i = 0; i < questions.length; i++) {
-    let question = document.querySelector(`#q${i + 1}`);
-    let wrapper = document.querySelector(`#q${i + 1}-wrapper`);
+    const question = document.querySelector(`#q${i + 1}`);
+    const wrapper = document.querySelector(`#q${i + 1}-wrapper`);
     question.addEventListener('focus', e => {
       wrapper.className = 'select-focused';
     });
@@ -98,13 +98,11 @@ const validName = name => {
   const userName = document.querySelector('#name');
   if (!name) {
     userName.placeholder = 'enter your name';
-    userName.scrollIntoView({ behavior: 'smooth', block: 'center' });
     userName.focus();
     return false;
   } else if (!name.match(/^[a-zA-Z\s]+$/)) {
     userName.value = '';
     userName.placeholder = 'letters only please';
-    userName.scrollIntoView({ behavior: 'smooth', block: 'center' });
     userName.focus();
     return false;
   } else {
@@ -117,7 +115,6 @@ const validUrl = url => {
   const photo = document.querySelector('#photo');
   if (!url) {
     photo.placeholder = 'enter a valid url';
-    photo.scrollIntoView({ behavior: 'smooth', block: 'center' });
     photo.focus();
     return false;
   } else if (
@@ -127,7 +124,6 @@ const validUrl = url => {
   ) {
     photo.value = '';
     photo.placeholder = 'enter a valid url';
-    photo.scrollIntoView({ behavior: 'smooth', block: 'center' });
     photo.focus();
     return false;
   } else {
@@ -139,10 +135,9 @@ const validUrl = url => {
 const validScores = arr => {
   if (arr.includes(NaN)) {
     for (let i = 0; i < arr.length; i++) {
-      let question = document.querySelector(`#q${i + 1}`);
+      const question = document.querySelector(`#q${i + 1}`);
       if (!arr[i]) {
         question.style.color = '#dc3545';
-        question.scrollIntoView({ behavior: 'smooth', block: 'center' });
         question.focus();
       }
     }
@@ -156,7 +151,7 @@ const validScores = arr => {
 document.querySelector('#submit').onclick = e => {
   e.preventDefault();
 
-  let newUser = {
+  const newUser = {
     name: titleCase(document.querySelector('#name').value.trim()),
     photo: document.querySelector('#photo').value.trim(),
     scores: [
@@ -195,9 +190,9 @@ document.querySelector('#submit').onclick = e => {
     document.querySelector('#name').placeholder = '';
     document.querySelector('#photo').value = '';
     document.querySelector('#photo').placeholder = '';
-    let select = document.getElementsByTagName('select');
+    const select = document.getElementsByTagName('select');
     for (let i = 0; i < select.length; i++) {
-      let question = document.querySelector(`#q${i + 1}`);
+      const question = document.querySelector(`#q${i + 1}`);
       question.value = '';
       question.style.color = '';
     }

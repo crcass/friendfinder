@@ -6,6 +6,10 @@
   font-family: 'National-Medium';
   src: url("../fonts/NationalTest-Medium.woff"); }
 
+@font-face {
+  font-family: 'Blanka';
+  src: url("../fonts/Blanka-Regular.otf"); }
+
 html, body {
   height: 100%; }
 
@@ -26,7 +30,7 @@ header {
   top: 0;
   z-index: 9999; }
   header h1 {
-    font-family: National-Medium, sans-serif;
+    font-family: Blanka, sans-serif;
     font-size: 2em;
     margin-left: 0.5em; }
   header a {

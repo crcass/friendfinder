@@ -47,6 +47,10 @@ const handleScroll = () => {
       const target = document.querySelector(`${position[posIndex]}`);
       target.focus();
     }
+    if (posIndex < position.length - 1) {
+      next.style.display = 'block';
+      submit.style.display = 'none';
+    }
   };
 };
 
@@ -64,7 +68,7 @@ const handleBorder = () => {
   name.onblur = e => {
     document.querySelector('#name-wrapper').className = 'input-wrapper';
   };
-  photo.onfocus =  e => {
+  photo.onfocus = e => {
     document.querySelector('#photo-wrapper').className = 'focused-wrapper';
   };
   photo.onblur = e => {

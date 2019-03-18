@@ -25,14 +25,27 @@ const handleScroll = () => {
 
   next.onclick = e => {
     e.preventDefault();
-    if (posIndex < position.length - 1) {
-      posIndex++;
-      let target = document.querySelector(`${position[posIndex]}`);
-      target.focus();
-    }
-    if (posIndex === position.length - 1) {
-      next.style.display = 'none';
-      submit.style.display = 'block';
+    const name = document.querySelector('#name').value;
+    const photo = document.querySelector('#photo').value;
+    const question = document.querySelector(`#q${posIndex - 1}`);
+    if (posIndex === 0 && !validName(name)) {
+      return false;
+    } else if (posIndex === 1 && !validUrl(photo)) {
+      return false;
+    } else if (posIndex > 1 && question.value === '') {
+      question.style.color = '#dc3545';
+      question.focus();
+      return false;
+    } else {
+      if (posIndex < position.length - 1) {
+        posIndex++;
+        let target = document.querySelector(`${position[posIndex]}`);
+        target.focus();
+      }
+      if (posIndex === position.length - 1) {
+        next.style.display = 'none';
+        submit.style.display = 'block';
+      }
     }
   };
 
@@ -135,7 +148,7 @@ const validUrl = url => {
   }
 };
 
-// validate user scores
+// validate user scores before submission
 const validScores = arr => {
   if (arr.includes(NaN)) {
     for (let i = 0; i < arr.length; i++) {

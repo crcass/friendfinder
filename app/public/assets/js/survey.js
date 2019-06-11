@@ -75,28 +75,26 @@ const handleBorder = () => {
   const photo = document.querySelector('#photo');
   const questions = document.getElementsByTagName('select');
 
-  name.onfocus = e => {
-    document.querySelector('#name-wrapper').className = 'focused-wrapper';
-  };
-  name.onblur = e => {
-    document.querySelector('#name-wrapper').className = 'input-wrapper';
-  };
-  photo.onfocus = e => {
-    document.querySelector('#photo-wrapper').className = 'focused-wrapper';
-  };
-  photo.onblur = e => {
-    document.querySelector('#photo-wrapper').className = 'input-wrapper';
-  };
+  name.onfocus = () =>
+    (document.querySelector('#name-wrapper').className = 'focused-wrapper');
+  name.onblur = () =>
+    (document.querySelector('#name-wrapper').className = 'input-wrapper');
+  photo.onfocus = () =>
+    (document.querySelector('#photo-wrapper').className = 'focused-wrapper');
+  photo.onblur = () =>
+    (document.querySelector('#photo-wrapper').className = 'input-wrapper');
 
   for (let i = 0; i < questions.length; i++) {
     const question = document.querySelector(`#q${i + 1}`);
     const wrapper = document.querySelector(`#q${i + 1}-wrapper`);
-    question.addEventListener('focus', e => {
-      wrapper.className = 'select-focused';
-    });
-    question.addEventListener('blur', e => {
-      wrapper.className = 'select-wrapper';
-    });
+    question.addEventListener(
+      'focus',
+      () => (wrapper.className = 'select-focused')
+    );
+    question.addEventListener(
+      'blur',
+      () => (wrapper.className = 'select-wrapper')
+    );
   }
 };
 
@@ -201,7 +199,7 @@ document.querySelector('#submit').onclick = e => {
         document.querySelector('#bestFriend-photo').src = response.data[1];
         document.querySelector('#compat').textContent = response.data[2];
       })
-      .catch(error => console.log(error));
+      .catch(error => console.error(error));
 
     document.querySelector('#name').value = '';
     document.querySelector('#name').placeholder = '';

@@ -4,7 +4,7 @@
   "description": "smu coding bootcamp assignment",
   "main": "server.js",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "express": "^4.16.4"
   },
   "devDependencies": {},
